@@ -97,15 +97,11 @@ def go(args):
     if os.path.exists(export_dir):
         shutil.rmtree(export_dir)
 
-    signature = infer_signature(X_val[processed_features], y_pred)
 
     mlflow.sklearn.save_model(
         sk_pipe,
         export_dir,
-        serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE,
-        signature=signature,
-        input_example=X_val.iloc[:2]
-
+        serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE
     )
 
     # Upload the model we just exported to W&B
