@@ -5,8 +5,8 @@ entry_points:
   main:
     parameters:
 
-      input_artifact: Name for the input artifact
-        description: 
+      input_artifact: 
+        description: Name for the input artifact
         type: string
 
       output_artifact:
